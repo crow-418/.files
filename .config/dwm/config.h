@@ -85,6 +85,7 @@ static const char *dmenucmd[] = {
     col_gray3,   "-sb", col_gray5, "-sf", col_gray4, NULL};
 static const char *termcmd[] = {"st", NULL};
 
+#include "movestack.c"
 static const Key keys[] = {
     /* modifier                     key        function        argument */
     {0, 0x1008FFB2, spawn,
@@ -109,6 +110,10 @@ static const Key keys[] = {
     {MODKEY | Mod1Mask, XK_j, incnmaster, {.i = +1}},
     {MODKEY | Mod1Mask, XK_k, incnmaster, {.i = -1}},
     {MODKEY | Mod1Mask, XK_l, setmfact, {.f = +0.05}},
+    {MODKEY | ShiftMask, XK_h, movestack, {.i = -1}},
+    {MODKEY | ShiftMask, XK_j, movestack, {.i = +1}},
+    {MODKEY | ShiftMask, XK_k, movestack, {.i = -1}},
+    {MODKEY | ShiftMask, XK_l, movestack, {.i = +1}},
     {MODKEY, XK_z, zoom, {0}},
     // {MODKEY, XK_Tab, view, {0}}, // what is this??
     {MODKEY, XK_w, killclient, {0}},
