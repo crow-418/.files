@@ -1,0 +1,25 @@
+return {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    event = "VeryLazy",
+    main = "nvim-treesitter.configs",
+    opts = {
+        ensure_installed = {
+            "bash",
+            "cmake",
+            "css",
+            "go",
+            "html",
+            "javascript",
+            "json",
+            "lua",
+            "python",
+            "toml",
+            "vim",
+            "yaml",
+            "markdown",
+            "markdown_inline",
+        },
+        highlight = { enable = true },
+    },
+}
