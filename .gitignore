@@ -57,7 +57,11 @@ dkms.conf
 # ncmpcpp
 .config/ncmpcpp/error.log
 .config/ncmpcpp/lyrics/
+
 # mpd
 .config/mpd/mpd.db
 .config/mpd/mpdstate
 .config/mpd/playlists/
+
+# dwm
+.config/dwm/dwm
