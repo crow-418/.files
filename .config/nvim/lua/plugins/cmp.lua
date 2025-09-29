@@ -3,32 +3,15 @@ return {
         "saghen/blink.cmp",
         event = "InsertEnter",
         version = "1.*",
-        dependencies = {
-            "rafamadriz/friendly-snippets",
-            "archie-judd/blink-cmp-words",
-        },
         opts = {
             keymap = { preset = "default" },
 
             sources = {
-                default = { "lsp", "lazydev", "path", "snippets", "buffer" },
+                default = { "lsp", "lazydev", "path", "buffer" },
                 providers = {
                     lazydev = {
                         module = "lazydev.integrations.blink",
                     },
-                    thesaurus = {
-                        name = "blink-cmp-words",
-                        module = "blink-cmp-words.thesaurus",
-                    },
-
-                    dictionary = {
-                        name = "blink-cmp-words",
-                        module = "blink-cmp-words.dictionary",
-                    },
-                },
-                per_filetype = {
-                    text = { "dictionary" },
-                    markdown = { "thesaurus" },
                 },
             },
 

@@ -49,6 +49,7 @@ local servers = {
     "gopls",
     "yamlls",
     "tinymist",
+    "emmet_language_server",
 }
 
 for _, name in ipairs(servers) do
