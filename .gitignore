@@ -71,6 +71,4 @@ dkms.conf
 
 # dmenu
 .config/dmenu/dmenu
-.config/dmenu/dmenu_path
-.config/dmenu/dmenu_run
 .config/dmenu/stest
