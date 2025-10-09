@@ -37,7 +37,7 @@ require("lazy").setup({
 require("options")
 require("autocmds")
 
-local servers = {
+vim.lsp.enable({
     "rust_analyzer",
     "lua_ls",
     "html",
@@ -50,8 +50,4 @@ local servers = {
     "yamlls",
     "tinymist",
     "emmet_language_server",
-}
-
-for _, name in ipairs(servers) do
-    vim.lsp.enable(name)
-end
+})
