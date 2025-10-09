@@ -4,15 +4,12 @@ vim.opt.undofile = true
 vim.opt.clipboard = "unnamedplus"
 -- Keep n amount of lines visible above and below the cursor when scrolling
 vim.opt.scrolloff = 10
--- Recursively search directories and sub-directories
-vim.opt.path:append("**")
 -- Enabled true colours (without it colours will be wrong in ssh/tmux)
 vim.opt.termguicolors = true
 
 -- Show sidebar numbers
+vim.opt.number = true
 vim.opt.relativenumber = true
--- Highlight current line on cursor
-vim.opt.cursorline = true
 
 -- Use spaces instead of tabs
 vim.opt.expandtab = true
