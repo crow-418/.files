@@ -15,7 +15,6 @@ return {
             "lua",
             "python",
             "toml",
-            "vim",
             "yaml",
             "markdown",
             "markdown_inline",
