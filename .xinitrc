@@ -18,8 +18,24 @@ mem() {
     echo -e "$mem"
 }
 
+night_light_applied=false
+night_light() {
+    hour=$(date +%H)
+    hour=${hour#0}
+
+    if ((hour >= 20 || hour < 5)); then
+        if [ "$night_light_applied" = false ]; then
+            for OUT in $(xrandr --query | awk '/ connected/ {print $1}'); do
+                xrandr --output $OUT --brightness 0.60 --gamma 0.80:0.72:0.60
+            done
+            night_light_applied=true
+        fi
+    fi
+}
+
 while true; do
     xsetroot -name "$(battery) | $(mem) | $(dte)"
+    night_light
     sleep 10s
 done &
 
