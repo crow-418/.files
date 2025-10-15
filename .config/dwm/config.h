@@ -77,19 +77,22 @@ static const Layout layouts[] = {
     .v = (const char *[]) { "/usr/bin/bash", "-c", cmd, NULL }                 \
   }
 
+#define SCRIPTS_DIR "$HOME/.config/scripts/"
 /* commands */
 static char dmenumon[2] =
     "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {"dmenu_run", "-i", "-m", dmenumon, NULL};
+static const char *brightnessup[] = { "/bin/sh", "-c", SCRIPTS_DIR "brightness-adjust.sh -i 0.1", NULL};
+static const char *brightnessdown[] = { "/bin/sh", "-c", SCRIPTS_DIR "brightness-adjust.sh -d 0.1", NULL};
+static const char *reposdmenu[] = { "/bin/sh", "-c", SCRIPTS_DIR "repos-dmenu.sh", NULL};
 static const char *termcmd[] = {"st", NULL};
 
 #include "movestack.c"
 static const Key keys[] = {
     /* modifier                     key        function        argument */
-    {0, 0x1008FFB2, spawn,
-     SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle")},
-    {MODKEY | Mod1Mask, XK_space, spawn,
-     SHCMD("$HOME/.config/scripts/repos-dmenu.sh")},
+    {0, 0x1008ff02, spawn, {.v = brightnessup}},
+    {0, 0x1008ff03, spawn, {.v = brightnessdown}},
+    {MODKEY | Mod1Mask, XK_space, spawn, {.v = reposdmenu}},
     {0, 0x1008FF13, spawn, {.v = mpcvolup}},
     {0, 0x1008FF11, spawn, {.v = mpcvoldown}},
     {0, 0x1008FF16, spawn, {.v = mpcprev}},
