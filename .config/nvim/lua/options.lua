@@ -2,8 +2,6 @@
 vim.opt.undofile = true
 -- Clipboard
 vim.opt.clipboard = "unnamedplus"
--- Keep n amount of lines visible above and below the cursor when scrolling
-vim.opt.scrolloff = 10
 -- Enabled true colours (without it colours will be wrong in ssh/tmux)
 vim.opt.termguicolors = true
 
