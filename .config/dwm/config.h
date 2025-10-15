@@ -87,18 +87,19 @@ static const char *brightnessdown[] = { "/bin/sh", "-c", SCRIPTS_DIR "brightness
 static const char *reposdmenu[] = { "/bin/sh", "-c", SCRIPTS_DIR "repos-dmenu.sh", NULL};
 static const char *termcmd[] = {"st", NULL};
 
+#include <X11/XF86keysym.h>
 #include "movestack.c"
 static const Key keys[] = {
     /* modifier                     key        function        argument */
-    {0, 0x1008ff02, spawn, {.v = brightnessup}},
-    {0, 0x1008ff03, spawn, {.v = brightnessdown}},
+    {0, XF86XK_MonBrightnessUp, spawn, {.v = brightnessup}},
+    {0, XF86XK_MonBrightnessDown, spawn, {.v = brightnessdown}},
     {MODKEY | Mod1Mask, XK_space, spawn, {.v = reposdmenu}},
-    {0, 0x1008FF13, spawn, {.v = mpcvolup}},
-    {0, 0x1008FF11, spawn, {.v = mpcvoldown}},
-    {0, 0x1008FF16, spawn, {.v = mpcprev}},
-    {0, 0x1008FF17, spawn, {.v = mpcnext}},
-    {0, 0x1008FF14, spawn, {.v = mpctoggle}},
-    {0, 0x1008FF12, spawn, {.v = mpctoggle}},
+    {0, XF86XK_AudioRaiseVolume, spawn, {.v = mpcvolup}},
+    {0, XF86XK_AudioLowerVolume, spawn, {.v = mpcvoldown}},
+    {0, XF86XK_AudioPrev, spawn, {.v = mpcprev}},
+    {0, XF86XK_AudioNext, spawn, {.v = mpcnext}},
+    {0, XF86XK_AudioPlay, spawn, {.v = mpctoggle}},
+    {0, XF86XK_AudioMute, spawn, {.v = mpctoggle}},
     {0, XK_Print, spawn, {.v = flameshotcmd}},
     {MODKEY, XK_space, spawn, {.v = dmenucmd}},
     {MODKEY, XK_Return, spawn, {.v = termcmd}},
