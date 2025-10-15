@@ -30,3 +30,5 @@ vim.opt.signcolumn = "yes"
 vim.opt.winborder = "single"
 -- Disabled creation of swap files
 vim.opt.swapfile = false
+-- Recursively search directories and sub-directories
+vim.opt.path:append("**")
