@@ -24,3 +24,7 @@ autocmd("BufReadPost", {
     end,
     desc = "go to last loc when opening a buffer",
 })
+
+autocmd("VimResized", {
+    command = "wincmd =",
+})
