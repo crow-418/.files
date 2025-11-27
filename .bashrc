@@ -33,5 +33,3 @@ export GTK_THEME="Adwaita:dark"
 source /usr/share/git/completion/git-prompt.sh
 # fnm
 eval "$(fnm env --use-on-cd --shell bash)"
-
-export GPG_TTY=$(tty)
