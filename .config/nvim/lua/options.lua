@@ -6,7 +6,6 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.scrolloff = 10
 -- Enabled true colours (without it colours will be wrong in ssh/tmux)
 vim.opt.termguicolors = true
-
 -- Show sidebar numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -34,6 +33,10 @@ vim.opt.winborder = "single"
 vim.opt.swapfile = false
 -- Recursively search directories and sub-directories
 vim.opt.path:append("**")
-
 -- Tree Style netrw
 vim.g.netrw_liststyle = 3
+
+-- Put my horizontal splits to the right instead of the left
+vim.opt.splitright = true
+-- Put my vertical splits under me instead of above me
+vim.opt.splitbelow = true
