@@ -2,13 +2,13 @@
 vim.opt.undofile = true
 -- Clipboard
 vim.opt.clipboard = "unnamedplus"
--- Keep n amount of lines visible above and below the cursor when scrolling
-vim.opt.scrolloff = 10
--- Enabled true colours (without it colours will be wrong in ssh/tmux)
-vim.opt.termguicolors = true
--- Show sidebar numbers
-vim.opt.number = true
-vim.opt.relativenumber = true
+-- Disabled creation of swap files
+vim.opt.swapfile = false
+
+-- Recursively search directories and sub-directories
+vim.opt.path:append("**")
+-- Tree Style netrw
+vim.g.netrw_liststyle = 3
 
 -- Use spaces instead of tabs
 vim.opt.expandtab = true
@@ -25,18 +25,20 @@ vim.opt.softtabstop = 4
 vim.opt.ignorecase = true
 -- Override ignorecase if the search contains uppercase letters
 vim.opt.smartcase = true
--- Always have signcolumn visible so signs don't push everything to the right
-vim.opt.signcolumn = "yes"
--- Border for windows
-vim.opt.winborder = "single"
--- Disabled creation of swap files
-vim.opt.swapfile = false
--- Recursively search directories and sub-directories
-vim.opt.path:append("**")
--- Tree Style netrw
-vim.g.netrw_liststyle = 3
 
 -- Put my horizontal splits to the right instead of the left
 vim.opt.splitright = true
 -- Put my vertical splits under me instead of above me
 vim.opt.splitbelow = true
+
+-- Keep n amount of lines visible above and below the cursor when scrolling
+vim.opt.scrolloff = 10
+-- Enabled true colours (without it colours will be wrong in ssh/tmux)
+vim.opt.termguicolors = true
+-- Show sidebar numbers
+vim.opt.number = true
+vim.opt.relativenumber = true
+-- Always have signcolumn visible so signs don't push everything to the right
+vim.opt.signcolumn = "yes"
+-- Border for windows
+vim.opt.winborder = "single"
