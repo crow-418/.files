@@ -55,21 +55,6 @@ require("lazy").setup({
 require("options")
 require("autocmds")
 
-vim.lsp.enable({
-    "rust_analyzer",
-    "lua_ls",
-    "html",
-    "cssls",
-    "clangd",
-    "bashls",
-    "pyright",
-    "ts_ls",
-    "gopls",
-    "yamlls",
-    "tinymist",
-    "emmet_language_server",
-})
-
 local highlights = {
     StatusLine = { fg = "#aaaaaa", bg = "#242424" },
     StatusLineNC = { fg = "#444444", bg = "#080808" },
