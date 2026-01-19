@@ -32,7 +32,7 @@ flameshot &
 # Host based settings
 if [ $(hostname) = "z0mbox" ]; then
     # Monitor Setup
-    xrandr --output DisplayPort-0 --mode 1920x1080 --rate 75
+    xrandr --output DisplayPort-0 --mode 1920x1080 --rate 120
     # Disable mouse Accel
     xinput set-prop 9 'libinput Accel Profile Enabled' 0 1 0
 fi
