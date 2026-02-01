@@ -77,3 +77,17 @@ local highlights = {
 for group, opts in pairs(highlights) do
     vim.api.nvim_set_hl(0, group, opts)
 end
+
+vim.lsp.enable({
+    "rust_analyzer",
+    "lua_ls",
+    "html",
+    "cssls",
+    "clangd",
+    "bashls",
+    "ts_ls",
+    "gopls",
+    "yamlls",
+    "emmet_language_server",
+    "harper_ls",
+})
