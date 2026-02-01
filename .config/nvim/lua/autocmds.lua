@@ -27,4 +27,5 @@ autocmd("BufReadPost", {
 
 autocmd("VimResized", {
     command = "wincmd =",
+    desc = "Rebalance splits on resize",
 })
