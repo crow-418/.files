@@ -53,6 +53,11 @@ autocmd("LspAttach", {
             callback = vim.lsp.buf.clear_references,
             desc = "Clear highlights in insert mode",
         })
+
+        autocmd("BufLeave", {
+            callback = vim.lsp.buf.clear_references,
+            desc = "Clear LSP highlights when leaving buffer or window",
+        })
     end,
     desc = "Wrapper for IDE-like highlight cmds to check if lsp is attached",
 })
