@@ -29,3 +29,16 @@ autocmd("VimResized", {
     command = "wincmd =",
     desc = "Rebalance splits on resize",
 })
+
+autocmd("CursorMoved", {
+    callback = function()
+        vim.lsp.buf.clear_references()
+        vim.lsp.buf.document_highlight()
+    end,
+    desc = "IDE-like highlight when stopping cursor",
+})
+
+autocmd("CursorMovedI", {
+    callback = vim.lsp.buf.clear_references,
+    desc = "IDE-like highlight when stopping cursor",
+})
