@@ -13,6 +13,5 @@ vim.lsp.enable({
 })
 
 return {
-    { "j-hui/fidget.nvim", event = "LspAttach", opts = {} },
     { "neovim/nvim-lspconfig", event = { "BufReadPre", "BufNewFile" } },
 }

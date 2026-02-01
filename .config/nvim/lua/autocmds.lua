@@ -49,3 +49,21 @@ autocmd("FileType", {
     end,
     desc = "Start treesitter",
 })
+
+autocmd("LspProgress", {
+    callback = function(ev)
+        local status = vim.lsp.status()
+        if string.len(status) >= 80 then
+            status = string.sub(status, 1, 80) .. ".."
+        end
+
+        vim.notify(status)
+
+        if ev.data.params.value.kind == "end" then
+            vim.defer_fn(function()
+                vim.api.nvim_echo({ { "", "Normal" } }, false, {})
+            end, 1000)
+        end
+    end,
+    desc = "Show progress of LSP in cmdline",
+})
