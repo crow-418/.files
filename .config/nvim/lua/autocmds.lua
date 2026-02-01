@@ -42,3 +42,10 @@ autocmd("CursorMovedI", {
     callback = vim.lsp.buf.clear_references,
     desc = "IDE-like highlight when stopping cursor",
 })
+
+autocmd("FileType", {
+    callback = function()
+        pcall(vim.treesitter.start)
+    end,
+    desc = "Start treesitter",
+})
