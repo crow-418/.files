@@ -30,17 +30,31 @@ autocmd("VimResized", {
     desc = "Rebalance splits on resize",
 })
 
-autocmd("CursorMoved", {
-    callback = function()
-        vim.lsp.buf.clear_references()
-        vim.lsp.buf.document_highlight()
-    end,
-    desc = "IDE-like highlight when stopping cursor",
-})
+autocmd("LspAttach", {
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if not client then
+            return
+        end
 
-autocmd("CursorMovedI", {
-    callback = vim.lsp.buf.clear_references,
-    desc = "IDE-like highlight when stopping cursor",
+        if not client.server_capabilities.documentHighlightProvider then
+            return
+        end
+
+        autocmd("CursorMoved", {
+            callback = function()
+                vim.lsp.buf.clear_references()
+                vim.lsp.buf.document_highlight()
+            end,
+            desc = "IDE-like highlight when stopping cursor",
+        })
+
+        autocmd("CursorMovedI", {
+            callback = vim.lsp.buf.clear_references,
+            desc = "Clear highlights in insert mode",
+        })
+    end,
+    desc = "Wrapper for IDE-like highlight cmds to check if lsp is attached",
 })
 
 autocmd("FileType", {
