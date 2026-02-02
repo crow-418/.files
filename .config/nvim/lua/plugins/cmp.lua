@@ -7,12 +7,7 @@ return {
             keymap = { preset = "default" },
 
             sources = {
-                default = { "lsp", "lazydev", "path", "buffer" },
-                providers = {
-                    lazydev = {
-                        module = "lazydev.integrations.blink",
-                    },
-                },
+                default = { "lsp", "path", "buffer" },
             },
 
             appearance = {
@@ -22,16 +17,5 @@ return {
             completion = { documentation = { auto_show = true } },
         },
         opts_extend = { "sources.default" },
-    },
-
-    -- lazydev
-    {
-        "folke/lazydev.nvim",
-        ft = "lua",
-        opts = {
-            library = {
-                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-            },
-        },
     },
 }
