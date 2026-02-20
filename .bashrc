@@ -27,6 +27,7 @@ stty -ixon
 
 export EDITOR="nvim"
 export GOPATH="$HOME/.go"
+export PATH="$PATH:$GOPATH/bin"
 export MANPAGER="nvim +Man!"
 export GTK_THEME="Adwaita:dark"
 
