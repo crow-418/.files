@@ -38,6 +38,7 @@ autocmd("LspAttach", {
         end
 
         autocmd("CursorMoved", {
+            buffer = args.buf,
             callback = function()
                 vim.lsp.buf.clear_references()
                 vim.lsp.buf.document_highlight()
