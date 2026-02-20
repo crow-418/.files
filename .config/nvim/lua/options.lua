@@ -7,6 +7,8 @@ vim.opt.swapfile = false
 
 -- Recursively search directories and sub-directories
 vim.opt.path:append("**")
+-- Ignore unwanted directories
+vim.opt.wildignore:append("*/node_modules/*,*/dist/*,*/build/*")
 -- Tree Style netrw
 vim.g.netrw_liststyle = 3
 
