@@ -33,11 +33,7 @@ autocmd("VimResized", {
 autocmd("LspAttach", {
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if not client then
-            return
-        end
-
-        if not client.server_capabilities.documentHighlightProvider then
+        if not (client and client.server_capabilities.documentHighlightProvider) then
             return
         end
 
@@ -49,14 +45,9 @@ autocmd("LspAttach", {
             desc = "IDE-like highlight when stopping cursor",
         })
 
-        autocmd("CursorMovedI", {
+        autocmd({ "CursorMovedI", "BufLeave" }, {
             callback = vim.lsp.buf.clear_references,
-            desc = "Clear highlights in insert mode",
-        })
-
-        autocmd("BufLeave", {
-            callback = vim.lsp.buf.clear_references,
-            desc = "Clear LSP highlights when leaving buffer or window",
+            desc = "Clear LSP highlights",
         })
     end,
     desc = "Wrapper for IDE-like highlight cmds to check if lsp is attached",
