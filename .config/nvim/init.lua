@@ -89,4 +89,5 @@ vim.lsp.enable({
     "yamlls",
     "emmet_language_server",
     "harper_ls",
+    "astro",
 })
