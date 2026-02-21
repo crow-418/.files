@@ -30,7 +30,7 @@ picom --config /dev/null --backend xrender --vsync &
 # Flameshot
 flameshot &
 # Host based settings
-if [ $(hostname) = "z0mbox" ]; then
+if [ $(hostname) = "teapot" ]; then
     # Monitor Setup
     xrandr --output DisplayPort-0 --mode 1920x1080 --rate 120
     # Disable mouse Accel
