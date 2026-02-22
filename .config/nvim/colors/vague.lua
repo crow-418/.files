@@ -1,0 +1,288 @@
+-- Derived from a fork of an MIT licensed colorscheme.
+-- Original authors:
+-- Copyright (c) 2024 Alberto Hernandez
+-- Copyright (c) 2025 skewb1k <skewb1kunix@gmail.com>
+-- Licensed under the MIT License.
+
+-- Modifications:
+-- Copyright (c) 2026 crow-418
+vim.g.colors_name = "vague"
+vim.cmd.highlight("clear")
+if vim.fn.has("syntax_on") then
+    vim.cmd.syntax("reset")
+end
+
+local conf = {
+    bold = true,
+    italic = true,
+    transparent = true,
+}
+
+local c = {
+    background = "#141415",
+    foreground = "#cdcdcd",
+    floatBorder = "#878787",
+    line = "#252530",
+    comment = "#606079",
+    builtin = "#b4d4cf",
+    func = "#c48282",
+    string = "#e8b589",
+    number = "#e0a363",
+    property = "#c3c3d5",
+    constant = "#aeaed1",
+    parameter = "#bb9dbd",
+    visual = "#333738",
+    error = "#d8647e",
+    warning = "#f3be7c",
+    hint = "#7e98e8",
+    operator = "#90a0b5",
+    keyword = "#6e94b2",
+    type = "#9bb4bc",
+    search = "#405065",
+    plus = "#7fa563",
+    diffAdd = "#293125",
+    diffChange = "#41362a",
+    diffText = "#6D583E",
+    diffDelete = "#3b242a",
+}
+
+local highlights = {
+    -- common
+    ColorColumn = { bg = c.line },
+    Conceal = { fg = c.func },
+    CurSearch = { fg = c.fg, bg = c.search },
+    CursorColumn = { bg = c.line },
+    CursorLine = { bg = c.line },
+    CursorLineNr = { fg = c.fg },
+    Debug = { fg = c.constant },
+    debugPC = { fg = c.bg, bg = c.fg },
+    debugBreakpoint = { fg = c.bg, bg = c.operator },
+    Directory = { fg = c.hint },
+    OkMsg = { fg = c.plus },
+    ErrorMsg = { fg = c.error, bold = conf.bold },
+    EndOfBuffer = { fg = c.comment },
+    FloatBorder = { fg = c.floatBorder },
+    FloatTitle = { fg = c.floatBorder },
+    FloatShadow = { bg = c.visual },
+    FloatShadowThrough = { bg = c.visual },
+    Folded = { fg = c.comment, bg = conf.transparent and "none" or c.line },
+    FoldColumn = { fg = c.comment },
+    IncSearch = { fg = c.bg, bg = c.search },
+    LineNr = { fg = c.comment },
+    MatchParen = { fg = c.fg, bg = c.visual },
+    MoreMsg = { fg = c.func, bold = conf.bold },
+    MsgSeparator = { fg = c.string, bg = conf.transparent and "none" or c.line, bold = conf.bold },
+    NonText = { fg = c.comment },
+    Normal = { fg = c.fg, bg = conf.transparent and "none" or c.bg },
+    NormalFloat = { fg = c.fg, bg = conf.transparent and "none" or c.bg },
+    ModeMsg = { fg = c.string },
+    Pmenu = { fg = c.fg },
+    PmenuSel = { fg = c.constant, bg = c.line },
+    PmenuThumb = { bg = c.comment },
+    PmenuBorder = { fg = c.floatBorder },
+    Question = { fg = c.constant },
+    QuickFixLine = { bg = c.inactiveBg },
+    qfError = { fg = c.error },
+    Search = { fg = c.fg, bg = c.search },
+    SignColumn = { fg = c.fg },
+    SpecialKey = { fg = c.comment },
+    SpellBad = { sp = c.error, undercurl = true },
+    SpellCap = { sp = c.delta, undercurl = true },
+    SpellLocal = { sp = c.hint, undercurl = true },
+    SpellRare = { sp = c.constant, undercurl = true },
+    StatusLine = { fg = c.fg, bg = conf.transparent and "none" or c.inactiveBg },
+    StatusLineTerm = { fg = c.fg, bg = conf.transparent and "none" or c.inactiveBg },
+    StatusLineNC = { fg = c.comment },
+    StatusLineTermNC = { fg = c.comment },
+    Substitute = { fg = c.type, bg = c.visual },
+    TabLine = conf.transparent and { fg = c.comment } or { bg = c.inactiveBg },
+    TabLineSel = conf.transparent and {} or { fg = c.inactiveBg, bg = c.fg },
+    Visual = { bg = c.visual },
+    VisualNOS = { bg = c.comment, underline = true },
+    WarningMsg = { fg = c.warning, bold = conf.bold },
+    Whitespace = { fg = c.line },
+    WildMenu = { fg = c.bg, bg = c.func },
+    WinSeparator = { fg = c.floatBorder },
+    WinBar = { fg = c.fg, bg = c.inactiveBg },
+    WinBarNC = { fg = c.comment },
+
+    -- diff
+    Added = { fg = c.plus },
+    Changed = { fg = c.warning },
+    DiffAdd = { bg = c.diffAdd },
+    DiffChange = { bg = c.diffChange },
+    DiffDelete = { bg = c.diffDelete },
+    DiffText = { bg = c.diffText },
+    Removed = { fg = c.error },
+
+    -- syntax
+    Boolean = { fg = c.number, bold = conf.bold },
+    Character = { fg = c.string },
+    Comment = { fg = c.comment, italic = conf.italic },
+    Conditional = { fg = c.keyword },
+    Constant = { fg = c.constant },
+    Define = { fg = c.comment },
+    Delimiter = { fg = c.foreground },
+    Error = { bg = c.error, bold = conf.bold },
+    Exception = { fg = c.keyword },
+    Float = { fg = c.number },
+    Function = { fg = c.func },
+    Identifier = { fg = c.constant },
+    Include = { fg = c.keyword },
+    Keyword = { fg = c.keyword },
+    Label = { fg = c.keyword },
+    Macro = { fg = c.constant },
+    Number = { fg = c.number },
+    Operator = { fg = c.operator },
+    PreCondit = { fg = c.comment },
+    PreProc = { fg = c.constant },
+    Repeat = { fg = c.keyword },
+    Special = { fg = c.builtin },
+    SpecialChar = { fg = c.keyword },
+    SpecialComment = { fg = c.keyword },
+    Statement = { fg = c.keyword },
+    StorageClass = { fg = c.constant },
+    String = { fg = c.string, italic = conf.italic },
+    Structure = { fg = c.constant },
+    Tag = { fg = c.builtin },
+    Title = { fg = c.property },
+    Todo = { fg = c.func, italic = conf.italic },
+    Type = { fg = c.type },
+    Typedef = { fg = c.constant },
+
+    -- treesitter
+    ["@attribute"] = { link = "Constant" },
+    ["@boolean"] = { link = "Boolean" },
+    ["@character"] = { link = "String" },
+    ["@character.special"] = { link = "SpecialChar" },
+    ["@constant"] = { link = "Constant" },
+    ["@constant.builtin"] = { fg = c.number, bold = conf.bold },
+    ["@constructor"] = { fg = c.constant },
+    ["@constructor.lua"] = { fg = c.type },
+    ["@text.diff.add"] = { link = "DiffAdd" },
+    ["@text.diff.delete"] = { link = "DiffDelete" },
+    ["@diff.plus"] = { link = "DiffAdd" },
+    ["@diff.delta"] = { link = "DiffChange" },
+    ["@diff.minus"] = { link = "DiffDelete" },
+    ["@function"] = { link = "Function" },
+    ["@function.builtin"] = { fg = c.func },
+    ["@function.call"] = { fg = c.parameter },
+    ["@function.macro"] = { link = "Macro" },
+    ["@function.method.call"] = { fg = c.type },
+    ["@keyword"] = { fg = c.keyword },
+    ["@keyword.conditional"] = { fg = c.keyword },
+    ["@keyword.exception"] = { link = "Exception" },
+    ["@keyword.import"] = { link = "PreProc" },
+    ["@keyword.operator"] = { fg = c.keyword },
+    ["@keyword.return"] = { fg = c.keyword, italic = conf.italic },
+    ["@label"] = { link = "Label" },
+    ["@markup"] = { fg = c.foreground },
+    ["@markup.heading"] = { fg = c.keyword, bold = conf.bold },
+    ["@markup.italic"] = { fg = c.foreground, italic = conf.italic },
+    ["@markup.link"] = { fg = c.string },
+    ["@markup.link.uri"] = { fg = c.string, underline = true },
+    ["@markup.list"] = { fg = c.func },
+    ["@markup.math"] = { fg = c.string },
+    ["@markup.quote.markdown"] = { fg = c.comment },
+    ["@markup.raw"] = { fg = c.constant },
+    ["@markup.strikethrough"] = { fg = c.comment, strikethrough = true },
+    ["@markup.strong"] = { fg = c.foreground, bold = conf.bold },
+    ["@markup.underline"] = { fg = c.foreground, underline = true },
+    ["@module"] = { link = "Constant" },
+    ["@number"] = { link = "Number" },
+    ["@number.float"] = { link = "Float" },
+    ["@operator"] = { link = "Operator" },
+    ["@property"] = { fg = c.property },
+    ["@punctuation.special"] = { link = "SpecialChar" },
+    ["@string"] = { link = "String" },
+    ["@string.escape"] = { link = "SpecialChar" },
+    ["@string.regexp"] = { link = "SpecialChar" },
+    ["@string.special.symbol"] = { link = "Identifier" },
+    ["@string.special.url"] = { fg = c.func },
+    ["@tag.attribute"] = { link = "Identifier" },
+    ["@tag.delimiter"] = { fg = c.foreground },
+    ["@type"] = { link = "Type" },
+    ["@type.builtin"] = { fg = c.builtin, bold = conf.bold },
+    ["@type.declaration"] = { fg = c.constant },
+    ["@type.definition"] = { link = "Typedef" },
+    ["@variable"] = { fg = c.foreground },
+    ["@variable.builtin"] = { fg = c.builtin },
+    ["@variable.member"] = { fg = c.builtin },
+    ["@variable.parameter"] = { fg = c.parameter },
+
+    -- lsp native
+    ["@lsp.type.builtinConstant"] = { link = "@constant.builtin" },
+    ["@lsp.type.builtinType"] = { link = "@type.builtin" },
+    ["@lsp.type.class"] = { link = "Structure" },
+    ["@lsp.type.comment"] = { link = "Comment" },
+    ["@lsp.type.enum"] = { link = "Structure" },
+    ["@lsp.type.enumMember"] = { link = "@variable.member" },
+    ["@lsp.type.function"] = { link = "@function.call" },
+    ["@lsp.type.generic"] = { link = "@type" },
+    ["@lsp.type.interface"] = { link = "Structure" },
+    ["@lsp.type.macro"] = { link = "Macro" },
+    ["@lsp.type.method"] = { link = "@function.method" },
+    ["@lsp.type.namespace"] = { link = "@module" },
+    ["@lsp.type.parameter"] = { link = "@variable.parameter" },
+    ["@lsp.type.property"] = { link = "@type" },
+    ["@lsp.type.selfParameter"] = { link = "Special" },
+    ["@lsp.type.typeParameter"] = { link = "Typedef" },
+    ["@lsp.type.variable"] = { link = "@constant" },
+    ["@lsp.typemod.function.builtin"] = { link = "@function.builtin" },
+    ["@lsp.typemod.function.defaultLibrary"] = { link = "@function.builtin" },
+    ["@lsp.typemod.function.definition"] = { link = "@function" },
+    ["@lsp.typemod.variable.defaultLibrary"] = { link = "@constant.builtin" },
+    ["@lsp.typemod.variable.definition"] = { link = "@property" },
+
+    -- lsp plugin
+    DiagnosticError = { fg = c.error, bold = conf.bold },
+    DiagnosticHint = { fg = c.hint },
+    DiagnosticInfo = { fg = c.constant, italic = conf.italic },
+    DiagnosticOk = { fg = c.plus },
+    DiagnosticUnderlineError = { sp = c.error, undercurl = true },
+    DiagnosticUnderlineHint = { sp = c.hint, undercurl = true },
+    DiagnosticUnderlineInfo = { sp = c.constant, undercurl = true },
+    DiagnosticUnderlineOk = { sp = c.plus, undercurl = true },
+    DiagnosticUnderlineWarn = { sp = c.delta, undercurl = true, bold = conf.bold },
+    DiagnosticVirtualTextError = { fg = c.error, bold = conf.bold },
+    DiagnosticVirtualTextHint = { fg = c.hint },
+    DiagnosticVirtualTextInfo = { fg = c.constant, italic = conf.italic },
+    DiagnosticVirtualTextOk = { fg = c.plus },
+    DiagnosticVirtualTextWarn = { fg = c.warning, bold = conf.bold },
+    DiagnosticWarn = { fg = c.warning, bold = conf.bold },
+    LspCodeLens = { fg = c.comment, italic = conf.italic },
+    LspCodeLensSeparator = { fg = c.comment },
+    LspCxxHlGroupEnumConstant = { fg = c.type },
+    LspCxxHlGroupMemberVariable = { fg = c.type },
+    LspCxxHlGroupNamespace = { fg = c.func },
+    LspCxxHlSkippedRegion = { fg = c.comment },
+    LspCxxHlSkippedRegionBeginEnd = { fg = c.operator },
+    LspReferenceRead = { bg = c.comment },
+    LspReferenceText = { bg = c.comment },
+    LspReferenceWrite = { bg = c.comment },
+
+    -- netrw
+    netrwTreeBar = { fg = c.comment },
+    netrwClassify = { link = "Directory" },
+}
+
+for group, opts in pairs(highlights) do
+    vim.api.nvim_set_hl(0, group, opts)
+end
+
+vim.g.terminal_color_0 = c.line
+vim.g.terminal_color_1 = c.error
+vim.g.terminal_color_2 = c.plus
+vim.g.terminal_color_3 = c.warning
+vim.g.terminal_color_4 = c.keyword
+vim.g.terminal_color_5 = c.parameter
+vim.g.terminal_color_6 = c.constant
+vim.g.terminal_color_7 = c.foreground
+vim.g.terminal_color_8 = c.comment
+vim.g.terminal_color_9 = "#e08398"
+vim.g.terminal_color_10 = "#99b782"
+vim.g.terminal_color_11 = "#f5cb96"
+vim.g.terminal_color_12 = "#8ba9c1"
+vim.g.terminal_color_13 = "#c9b1ca"
+vim.g.terminal_color_14 = "#bebeda"
+vim.g.terminal_color_15 = "#d7d7d7"
